@@ -22,3 +22,6 @@ func Response(w http.ResponseWriter, resp interface{}, err error) {
 	}
 	httpx.OkJson(w, body)
 }
+func JwtUnauthorizedResult(w http.ResponseWriter, r *http.Request, err error) {
+	httpx.WriteJson(w, http.StatusUnauthorized, &Body{401, "鉴权失败", nil})
+}
